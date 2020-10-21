@@ -1,0 +1,9 @@
+:host {
+  /* @tailwind base;
+  @tailwind components;
+  @tailwind utilities; */
+}
+
+:host div {
+  /* @apply text-green-500; */
+}
