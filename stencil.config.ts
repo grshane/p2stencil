@@ -1,6 +1,7 @@
 import { Config } from '@stencil/core';
 import { postcss } from '@stencil/postcss';
 import tailwind from 'stencil-tailwind'
+import tailwindcss from 'tailwindcss'
 
 import autoprefixer from 'autoprefixer'
 
@@ -22,7 +23,11 @@ export const config: Config = {
       serviceWorker: null, // disable service workers
     },
   ],
+  devServer: {
+    reloadStrategy: 'pageReload'
+  },
   plugins: [
+    // tailwind({tailwind: tailwindcss('./tailwind.config.js')}),
     tailwind(),
     postcss({
       plugins: [
