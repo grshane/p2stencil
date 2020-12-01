@@ -7,6 +7,7 @@ import autoprefixer from 'autoprefixer'
 
 export const config: Config = {
   namespace: 'p2stencil',
+   globalStyle: './node_modules/tailwindcss/dist/base.css',
   outputTargets: [
     {
       type: 'dist',
@@ -33,7 +34,7 @@ export const config: Config = {
       plugins: [
         require('postcss-import'),
         // tailwindcss('./tailwind.config.js'),
-        autoprefixer(),
+        // autoprefixer(),
       ]}),
   ],
 };

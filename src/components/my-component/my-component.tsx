@@ -27,6 +27,6 @@ export class MyComponent {
   }
 
   render() {
-    return <div class='text-orange-500 p-8 m-12 bg-green-500'><slot>Hello, World! I'm {this.getText()}</slot></div>;
+    return <base-style><h1 class='text-orange-500 p-8 m-12 bg-green-500'><slot>Hello, World! I'm {this.getText()}</slot></h1></base-style>;
   }
 }

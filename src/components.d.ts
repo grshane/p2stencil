@@ -6,6 +6,8 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface BaseStyle {
+    }
     interface MyComponent {
         /**
           * The first name
@@ -24,6 +26,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLBaseStyleElement extends Components.BaseStyle, HTMLStencilElement {
+    }
+    var HTMLBaseStyleElement: {
+        prototype: HTMLBaseStyleElement;
+        new (): HTMLBaseStyleElement;
+    };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
     var HTMLMyComponentElement: {
@@ -37,11 +45,14 @@ declare global {
         new (): HTMLP2HeroElement;
     };
     interface HTMLElementTagNameMap {
+        "base-style": HTMLBaseStyleElement;
         "my-component": HTMLMyComponentElement;
         "p2-hero": HTMLP2HeroElement;
     }
 }
 declare namespace LocalJSX {
+    interface BaseStyle {
+    }
     interface MyComponent {
         /**
           * The first name
@@ -59,6 +70,7 @@ declare namespace LocalJSX {
     interface P2Hero {
     }
     interface IntrinsicElements {
+        "base-style": BaseStyle;
         "my-component": MyComponent;
         "p2-hero": P2Hero;
     }
@@ -67,6 +79,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "base-style": LocalJSX.BaseStyle & JSXBase.HTMLAttributes<HTMLBaseStyleElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "p2-hero": LocalJSX.P2Hero & JSXBase.HTMLAttributes<HTMLP2HeroElement>;
         }
